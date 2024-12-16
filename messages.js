@@ -5,7 +5,7 @@ document.getElementById('messageForm').addEventListener('submit', async (e) => {
     const message = document.getElementById('message').value;
     
     try {
-      const response = await fetch('/api/messages', {
+      const response = await fetch('https://messages-api.chris-ried.workers.dev/messages', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -26,7 +26,7 @@ document.getElementById('messageForm').addEventListener('submit', async (e) => {
   
   async function loadMessages() {
     try {
-      const response = await fetch('/api/messages');
+      const response = await fetch('https://messages-api.chris-ried.workers.dev/messages');
       const messages = await response.json();
       
       const messagesDiv = document.getElementById('messages');
