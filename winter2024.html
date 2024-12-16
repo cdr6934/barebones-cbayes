@@ -15,6 +15,12 @@
       <p class="subtitle">#PTPX2024(<a href="https://www.generatecoll.com">generatecoll</a>)</p>  
 
       <section>
+        <figure>
+          <img src="img/img_winter.jpg" alt="Winter scene" style="width: 50%; max-width: 800px;">
+          
+        </figure>
+      </section>
+      <section>
         <p>
          Hello everyone! I was quite excited to get creations from the community. You never know what you will get.
          I am a big fan of generative art and I am always looking for new ways to create art. This time around I wanted 
@@ -22,50 +28,24 @@
         </p>
       <section>
 
-     
-      </section>
-    
+
+    <!-- Add this script before the closing body tag -->
+    <script src="messages.js"></script>
+
+    <!-- Add this section before the footer -->
+    <section class="form-section">
+      <form id="messageForm">
+        <label for="message">Share your winter message:</label>
+        <input type="text" id="message" name="message" required>
+        <button type="submit">Submit</button>
+      </form>
       
-      <h2>Education</h2>
-      <section>
-        <p>
-          I am interested in many things. I love to learn and there is where I
-          find great joy in life.
-          <label for="sn-one" class="margin-toggle sidenote-number"> </label>
-          <input type="checkbox" id="sn-one" class="margin-toggle" />
-          <span class="sidenote">
-            Here is what I am about to write to you
-          </span> 
-        </p>
-      </section>
+      <div id="messages">
+        <!-- Messages will be displayed here -->
+      </div>
+    </section>
 
-      <section>
-        <h2>Interests</h2>
-        <p>
-          My interests have spanned many different subjects. From nature, art, history, and technology. 
-          And sometimes that seems to be a bit overwhelming from my brain. Yet it is in the intersections of 
-          this where the most interesting parts of my life are found. 
-
-          <ul>
-            <li>Art</li>
-            <li>Emerging Technology</li>
-            <li>History</li>
-          </ul>
-        </p>
-      </section>
-
-<section>
-  <h2>Projects</h2>
-  <h3>Celestial Collisions</h3>
-  <p>
-    <img src="https://live.staticflickr.com/65535/52634330699_395f9fc45d_w_d.jpg" alt="generatecoll" />
-  </p>
-  <p>
-  Celestial Collisions - The following series is an exploration of organic textures that embodies the way of a gentle 
-  breeze and the simulation of color pencils that randomly generates simple shapes. Out of 380K different combinations of the following combinations,
-  an endless amount of orientations can be produced from the piece of work.
-</p>
-  </p>
+ 
 <section>
     <canvas id="myCanvas" resize></canvas>
     <button id="exportBtn">Export SVG</button>
@@ -73,7 +53,7 @@
 <script type="text/paperscript" src="snowflake.js" canvas="myCanvas"></script>
     
     </section>
-</section>
+
     </article>
     <!-- The footer holds our remix button — you can keep or delete it ✂ -->
     <footer class="footer">
@@ -81,5 +61,6 @@
       <a href="https://www.instagram.com/generate.collective/"> Instagram </a>
       <a href="https://twitter.com/generatecoll"> Twitter </a>
     </footer>
+
   </body>
 </html>
