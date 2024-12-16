@@ -1,4 +1,6 @@
 // messages.js
+const API_URL = 'https://messages-api.chris-ried.workers.dev/api/messages';
+
 document.getElementById('messageForm').addEventListener('submit', async (e) => {
     e.preventDefault();
     
@@ -7,7 +9,7 @@ document.getElementById('messageForm').addEventListener('submit', async (e) => {
     console.log( JSON.stringify({ message }));
 
     try {
-      const response = await fetch('https://messages-api.chris-ried.workers.dev/api/messages', {
+      const response = await fetch(API_URL, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -28,7 +30,7 @@ document.getElementById('messageForm').addEventListener('submit', async (e) => {
   
   async function loadMessages() {
     try {
-      const response = await fetch('https://messages-api.chris-ried.workers.dev/api/messages');
+      const response = await fetch(API_URL);
       const messages = await response.json();
       
       const messagesDiv = document.getElementById('messages');
