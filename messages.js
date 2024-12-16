@@ -3,7 +3,7 @@ document.getElementById('messageForm').addEventListener('submit', async (e) => {
     e.preventDefault();
     
     const message = document.getElementById('message').value;
-    
+    console.log( JSON.stringify({ message }));
     try {
       const response = await fetch('https://messages-api.chris-ried.workers.dev/api/messages', {
         method: 'POST',
