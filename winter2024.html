@@ -8,6 +8,21 @@
       rel="stylesheet"
     />
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.12.15/paper-full.min.js"></script>
+    <style>
+      .progress {
+        width: 100%;
+        background-color: #f0f0f0;
+        border-radius: 4px;
+        margin: 10px 0;
+      }
+
+      .progress-bar {
+        height: 20px;
+        background-color: #4CAF50;
+        border-radius: 4px;
+        transition: width 0.3s ease-in-out;
+      }
+    </style>
   </head>
   <body>
     <article>
@@ -24,7 +39,7 @@
         <p>
          Hello everyone! I was quite excited to get creations from the community. You never know what you will get.
          I am a big fan of generative art and I am always looking for new ways to create art. This time around I wanted 
-         to create a more participatory experience. I wanted those who recieved the mail to 
+         to create a more participatory experience. I wanted those who recieved the mail to join in the fun. 
         </p>
         <h2>Paper </h2>
         <p>
@@ -56,20 +71,28 @@
         <button type="submit">Submit</button>
       </form>
       
-      <div id="messages">
-        <!-- Messages will be displayed here -->
+      <div id="messageStats">
+        <p>Total Redeemed: <span id="messageCount">0</span></p>
+        <div class="progress">
+          <div id="progressBar" class="progress-bar" role="progressbar" 
+               style="width: 0%" aria-valuenow="0" aria-valuemin="0" 
+               aria-valuemax="43"></div>
+        </div>
       </div>
     </section>
 
  
 <section>
   <p>
-    Following is a little random snowflake you can play with in SVG. 
+    Following is a little random snowflake you can play with in SVG. Share any with me that you like on (<a href="https://bsky.app/profile/generatecoll.com" target="_blank" rel="noopener noreferrer">BSky</a>) or (<a href="https://twitter.com/generatecoll" target="_blank" rel="noopener noreferrer">X</a>)! 
   </p>
 
   <div style="display: flex; flex-direction: column; align-items: center; gap: 10px;">
-        <canvas id="myCanvas" resize></canvas>
-        <button id="exportBtn">Export SVG</button>
+        <canvas id="myCanvas" resize style="width: 100%; height: 500px;"></canvas>
+        <div style="display: flex; gap: 10px;">
+            <button id="refreshBtn">New Snowflake</button>
+            <button id="exportBtn">Export SVG</button>
+        </div>
     </div>
 
   <script type="text/paperscript" src="snowflake.js" canvas="myCanvas"></script>
