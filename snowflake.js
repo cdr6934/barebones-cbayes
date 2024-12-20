@@ -9,13 +9,10 @@
         return result;
     }
 
-    // Generate a random string
     var randomString =generateRandomString(Math.floor(Math.random()*30)+1); //- 'LF-DLLFFF+-+DF'; 
     var randomStringRules = generateRandomString(Math.floor(Math.random()*15)+1); '+LDL+DFF';
     console.log(randomString); // For debugging
 
-
-        // Functions need to be defined before they are called in PaperScript
 
         function generateLSystem(axiom, rules, iterations) {
             var current = axiom;
@@ -77,7 +74,7 @@
             return path;
         }
 
-        // Parameters for the L-System
+    
         var axiom = randomString;
         var rules = {
             "F": randomStringRules
@@ -87,17 +84,12 @@
         var angleIncrement = 30.000; // 60 degrees for 6-fold symmetry
         var length = 20; // Length of each line segment
 
-        // Generate the L-System string
+    
         var instructions = generateLSystem(axiom, rules, iterations);
-
-        // Draw the L-System
         var center = view.center;
-        var startPosition = center.subtract(new Point(200, 0)); // Starting position
-
-        // Draw the first side
+        var startPosition = center.subtract(new Point(200, 0)); 
         var path = drawLSystem(instructions, startPosition, initialAngle, angleIncrement, length);
 
-        // Rotate and duplicate the path to complete the snowflake
         var snowflake = new Group([path]);
         for (var i = 0; i < 8; i++) {
             var clone = path.clone();
@@ -105,7 +97,7 @@
             snowflake.addChild(clone);
         }
 
-        // Export SVG on button click
+
         var exportBtn = document.getElementById('exportBtn');
         exportBtn.addEventListener('click', function() {
             var svg = project.exportSVG({ asString: true });
