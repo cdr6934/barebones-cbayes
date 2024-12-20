@@ -9,8 +9,8 @@
         return result;
     }
 
-    var randomString =generateRandomString(Math.floor(Math.random()*30)+1); //- 'LF-DLLFFF+-+DF'; 
-    var randomStringRules = generateRandomString(Math.floor(Math.random()*15)+1); '+LDL+DFF';
+    var randomString = 'LFDDFL-++DD+-F-'; generateRandomString(Math.floor(Math.random()*30)+1); //- 'LF-DLLFFF+-+DF'; 
+    var randomStringRules = '+LDL+DFF' + generateRandomString(Math.floor(Math.random()*15)+1); '+LDL+DFF';
     console.log(randomString); // For debugging
 
 
