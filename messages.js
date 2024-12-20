@@ -57,8 +57,7 @@ document.getElementById('messageForm').addEventListener('submit', async (e) => {
 
   // Update this wherever you load or update messages
   function displayMessages(messages) {
-   // const messagesDiv = document.getElementById('messages');
-   // messagesDiv.innerHTML = '';
+
     
     // List of valid codes
     const validCodes = [
@@ -76,9 +75,5 @@ document.getElementById('messageForm').addEventListener('submit', async (e) => {
     
     // Update the count using filtered messages
     updateMessageCount(uniqueMessages.length);
-    
-    // Display only the valid unique messages
-   // uniqueMessages.forEach(msg => {
-     //   messagesDiv.innerHTML += `<p>${msg}</p>`;
-    //});
+  
   }
