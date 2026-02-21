@@ -1,0 +1,424 @@
+:root {
+  --bg-color: #fbfbfd;
+  --text-color: #1d1d1f;
+  --text-secondary: #86868b;
+  --accent-color: #0066cc;
+  --card-bg: #ffffff;
+  --border-color: rgba(0, 0, 0, 0.08);
+  --glass-bg: rgba(255, 255, 255, 0.72);
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --transition-fast: 0.2s ease;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #000000;
+    --text-color: #f5f5f7;
+    --text-secondary: #86868b;
+    --accent-color: #2997ff;
+    --card-bg: #1c1c1e;
+    --border-color: rgba(255, 255, 255, 0.12);
+    --glass-bg: rgba(0, 0, 0, 0.65);
+    --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.4);
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  font-size: 21px;
+  /* Increased base size for sleek readability */
+  font-weight: 400;
+  letter-spacing: -0.022em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: var(--text-color);
+  text-decoration: none;
+  position: relative;
+  transition: color var(--transition-fast);
+}
+
+a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: var(--accent-color);
+  transform-origin: bottom right;
+  transition: transform 0.3s cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+a:hover {
+  color: var(--accent-color);
+}
+
+a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 0.5em;
+  letter-spacing: -0.015em;
+}
+
+h1 {
+  font-size: 72px;
+  /* Massive hero type */
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  margin-top: 2em;
+  margin-bottom: 0.2em;
+}
+
+h2 {
+  font-size: 40px;
+  /* Stronger section headers */
+  line-height: 1.15;
+  margin-top: 1.5em;
+  padding-bottom: 0.4em;
+  border-bottom: 1px solid var(--border-color);
+}
+
+h3 {
+  font-size: 20px;
+  margin-top: 1.5em;
+}
+
+p {
+  margin-bottom: 1.2em;
+}
+
+ul,
+ol {
+  margin-bottom: 1.2em;
+  padding-left: 0;
+  list-style-type: none;
+}
+
+li {
+  margin-bottom: 0.8em;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 32px;
+  padding-bottom: 160px;
+}
+
+section {
+  margin-bottom: 15vh;
+  /* Dramatic vertical spacing */
+  opacity: 1;
+  /* Reset for GSAP */
+}
+
+blockquote {
+  font-size: 21px;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--text-secondary);
+  border-left: 4px solid var(--accent-color);
+  padding-left: 1.2em;
+  margin: 2.5em 0;
+}
+
+blockquote footer {
+  display: block;
+  font-size: 14px;
+  margin-top: 0.8em;
+  font-style: normal;
+  color: var(--text-secondary);
+}
+
+.subtitle {
+  font-size: 21px;
+  color: var(--text-secondary);
+  margin-bottom: 2em;
+  font-weight: 500;
+}
+
+.sidenote {
+  display: inline-block;
+  font-size: 13px;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  padding: 4px 10px;
+  border-radius: var(--radius-md);
+  margin: 4px 4px 0 0;
+  color: var(--text-secondary);
+  box-shadow: var(--shadow-sm);
+  vertical-align: middle;
+  line-height: 1.3;
+}
+
+.sidenote a {
+  color: var(--accent-color);
+}
+
+.margin-toggle,
+.sidenote-number {
+  display: none;
+}
+
+.card {
+  background-color: var(--card-bg);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  margin-bottom: 24px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-color);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+.card:hover {
+  transform: translateY(-8px) scale(1.01);
+  /* Magnetic pop effect */
+  box-shadow: var(--shadow-md);
+}
+
+.card-title {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 12px;
+  font-size: 24px;
+}
+
+.card p:last-child {
+  margin-bottom: 0;
+}
+
+img {
+  max-width: 100%;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 1.2em;
+  border: 1px solid var(--border-color);
+}
+
+.footer {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--glass-bg);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  padding: 14px 28px;
+  border-radius: 40px;
+  box-shadow: var(--shadow-md), 0 0 0 1px var(--border-color);
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  z-index: 100;
+  animation: floatIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes floatIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+.footer a {
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.6;
+  transition: opacity 0.3s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  will-change: transform;
+}
+
+.footer a::after {
+  display: none;
+  /* Remove underline animation for footer icons */
+}
+
+.footer a:hover {
+  opacity: 1;
+  transform: scale(1.2) translateY(-4px);
+  /* Magnetic spring effect */
+  text-decoration: none;
+}
+
+/* Header & Navigation */
+site-header {
+  display: block;
+  position: sticky;
+  top: 0;
+  z-index: 200;
+}
+
+.header {
+  padding: 16px 24px;
+  background-color: var(--glass-bg);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-bottom: 1px solid var(--border-color);
+  animation: slideDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.nav-container {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--text-color);
+}
+
+.nav-logo::after {
+  display: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.nav-item {
+  font-size: 15px;
+  font-weight: 500;
+  opacity: 0.6;
+  transition: opacity 0.3s ease, color 0.3s ease;
+}
+
+.nav-item::after {
+  display: none;
+}
+
+.nav-item:hover {
+  opacity: 1;
+  color: var(--text-color);
+}
+
+.nav-accent {
+  background-color: var(--text-color);
+  color: var(--bg-color);
+  padding: 8px 16px;
+  border-radius: 20px;
+  opacity: 1;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+}
+
+.nav-accent:hover {
+  transform: scale(1.05);
+  color: var(--bg-color);
+  opacity: 0.9;
+}
+
+/* Unified Forms, Inputs & Buttons */
+input[type="text"] {
+  width: 100%;
+  max-width: 320px;
+  padding: 14px 20px;
+  font-size: 17px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  margin-right: 12px;
+  margin-bottom: 12px;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(41, 151, 255, 0.2);
+}
+
+button {
+  background-color: var(--text-color);
+  color: var(--bg-color);
+  border: none;
+  padding: 14px 24px;
+  font-size: 17px;
+  font-weight: 500;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+  will-change: transform;
+  margin-bottom: 12px;
+}
+
+button:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+.progress {
+  width: 100%;
+  background-color: var(--border-color);
+  border-radius: 20px;
+  margin: 16px 0;
+  overflow: hidden;
+  height: 12px;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: var(--accent-color);
+  transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+
+.footer .text-link {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Hide divider text in footer */
+.footer-divider {
+  display: none;
+}
